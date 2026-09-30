@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Tools Hub - Discover, filter, and explore state-of-the-art AI tools for coding, writing, design, research, productivity, and marketing.">
+    <title>AI Tools Hub | Discover top artificial intelligence tools</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#" id="brandLogo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-microchip-ai"></i>
+                </div>
+                <span class="brand-text">AI Tools <span class="gradient-text">Hub</span></span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Search bar in Navbar -->
+                <div class="mx-auto my-2 my-lg-0 navbar-search-wrap">
+                    <div class="input-group">
+                        <span class="input-group-text bg-transparent border-end-0 text-muted">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" id="searchInput" class="form-control border-start-0 ps-0" placeholder="Search AI tools by name, description, feature..." aria-label="Search tools">
+                        <button class="btn btn-outline-secondary d-none" type="button" id="clearSearchBtn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-nav-tab active" id="viewUserModeBtn">
+                        <i class="fa-solid fa-compass me-1"></i> Explore
+                    </button>
+                    <button class="btn btn-nav-tab" id="viewAdminModeBtn">
+                        <i class="fa-solid fa-user-shield me-1"></i> Admin Panel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- User Main View -->
+    <main id="userViewSection">
+        <!-- Hero Section -->
+        <section class="hero-section text-center py-5">
+            <div class="container">
+                <span class="badge hero-badge mb-3">
+                    <i class="fa-solid fa-bolt me-1"></i> Curated Directory of 2026 AI Innovations
+                </span>
+                <h1 class="hero-title display-4 fw-extrabold mb-3">
+                    Supercharge Your Workflow with <span class="gradient-text">Next-Gen AI</span>
+                </h1>
+                <p class="hero-subtitle lead text-muted mx-auto mb-4" style="max-width: 650px;">
+                    Explore verified artificial intelligence tools across Coding, Research, Design, Video, Writing, and Productivity.
+                </p>
+
+                <!-- Dynamic Hero Stats -->
+                <div class="d-flex justify-content-center gap-4 flex-wrap my-4" id="heroStatsContainer">
+                    <div class="stat-pill">
+                        <div class="stat-num text-gradient" id="statTotalTools">--</div>
+                        <div class="stat-label">AI Tools</div>
+                    </div>
+                    <div class="stat-pill">
+                        <div class="stat-num text-gradient" id="statTotalCategories">10</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat-pill">
+                        <div class="stat-num text-gradient" id="statFreeTools">--</div>
+                        <div class="stat-label">Free / Freemium</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filters Section -->
+        <section class="container mb-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="fw-bold m-0"><i class="fa-solid fa-filter me-2 text-accent"></i> Categories</h5>
+                <span class="text-muted small" id="activeFilterLabel">Showing all tools</span>
+            </div>
+            
+            <div class="category-scroll-container pb-2" id="categoryPillsWrapper">
+                <button class="btn category-pill active" data-category="All">
+                    <i class="fa-solid fa-globe"></i> All Tools
+                </button>
+                <button class="btn category-pill" data-category="Coding">
+                    <i class="fa-solid fa-code"></i> Coding
+                </button>
+                <button class="btn category-pill" data-category="Research">
+                    <i class="fa-solid fa-flask"></i> Research
+                </button>
+                <button class="btn category-pill" data-category="Writing">
+                    <i class="fa-solid fa-pen-nib"></i> Writing
+                </button>
+                <button class="btn category-pill" data-category="Design">
+                    <i class="fa-solid fa-palette"></i> Design
+                </button>
+                <button class="btn category-pill" data-category="Education">
+                    <i class="fa-solid fa-graduation-cap"></i> Education
+                </button>
+                <button class="btn category-pill" data-category="Video">
+                    <i class="fa-solid fa-video"></i> Video
+                </button>
+                <button class="btn category-pill" data-category="Image Generation">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Image Generation
+                </button>
+                <button class="btn category-pill" data-category="Productivity">
+                    <i class="fa-solid fa-chart-line"></i> Productivity
+                </button>
+                <button class="btn category-pill" data-category="Marketing">
+                    <i class="fa-solid fa-bullhorn"></i> Marketing
+                </button>
+                <button class="btn category-pill" data-category="Chatbots">
+                    <i class="fa-solid fa-comments"></i> Chatbots
+                </button>
+            </div>
+        </section>
+
+        <!-- Pricing Secondary Filter -->
+        <section class="container mb-4">
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+                <span class="text-muted small fw-semibold me-2"><i class="fa-solid fa-tags me-1"></i> Pricing:</span>
+                <button class="btn btn-sm pricing-filter-btn active" data-pricing="All">All</button>
+                <button class="btn btn-sm pricing-filter-btn" data-pricing="Free">Free</button>
+                <button class="btn btn-sm pricing-filter-btn" data-pricing="Freemium">Freemium</button>
+                <button class="btn btn-sm pricing-filter-btn" data-pricing="Paid">Paid</button>
+            </div>
+        </section>
+
+        <!-- Tools Grid Section -->
+        <section class="container mb-5">
+            <!-- Loading Spinner -->
+            <div id="toolsLoadingSpinner" class="text-center py-5">
+                <div class="spinner-border text-accent" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Loading tools...</span>
+                </div>
+                <p class="mt-3 text-muted">Fetching latest AI tools...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="noToolsFound" class="text-center py-5 d-none glass-card my-3">
+                <i class="fa-solid fa-folder-open display-3 text-muted mb-3"></i>
+                <h4 class="fw-bold">No AI Tools Found</h4>
+                <p class="text-muted mb-3" id="emptyStateMessage">Try changing your search term or category filter.</p>
+                <button class="btn btn-gradient btn-sm" id="resetFiltersBtn">Reset Filters</button>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="row g-4" id="toolsGrid">
+                <!-- Dynamically Populated Cards -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin Panel Section -->
+    <section id="adminViewSection" class="container py-4 d-none">
+        <!-- Admin Header -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+            <div>
+                <h2 class="fw-bold m-0"><i class="fa-solid fa-user-shield me-2 text-accent"></i> Admin Dashboard</h2>
+                <p class="text-muted m-0">Manage AI tool entries, monitor metrics, and modify platform inventory.</p>
+            </div>
+            <div class="d-flex gap-2">
+                <button class="btn btn-gradient" id="addNewToolModalBtn">
+                    <i class="fa-solid fa-plus me-1"></i> Add New AI Tool
+                </button>
+            </div>
+        </div>
+
+        <!-- Admin Statistics Cards -->
+        <div class="row g-3 mb-4" id="adminStatsCards">
+            <div class="col-md-3">
+                <div class="glass-card stat-card p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted small text-uppercase fw-semibold">Total Tools</span>
+                            <h3 class="fw-extrabold m-0 text-accent" id="adminTotalCount">0</h3>
+                        </div>
+                        <div class="stat-icon bg-accent-soft">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card stat-card p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted small text-uppercase fw-semibold">Free / Freemium</span>
+                            <h3 class="fw-extrabold m-0 text-success" id="adminFreeCount">0</h3>
+                        </div>
+                        <div class="stat-icon bg-success-soft">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card stat-card p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted small text-uppercase fw-semibold">Paid Tools</span>
+                            <h3 class="fw-extrabold m-0 text-warning" id="adminPaidCount">0</h3>
+                        </div>
+                        <div class="stat-icon bg-warning-soft">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="glass-card stat-card p-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <span class="text-muted small text-uppercase fw-semibold">Categories</span>
+                            <h3 class="fw-extrabold m-0 text-info" id="adminCategoryCount">0</h3>
+                        </div>
+                        <div class="stat-icon bg-info-soft">
+                            <i class="fa-solid fa-tags"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Table Card -->
+        <div class="glass-card p-4 mb-5">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                <h5 class="fw-bold m-0"><i class="fa-solid fa-table me-2 text-accent"></i> Inventory List</h5>
+                <div class="input-group style-admin-search" style="max-width: 300px;">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="adminTableSearch" class="form-control border-start-0" placeholder="Filter admin table...">
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover align-middle custom-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Category</th>
+                            <th>Pricing</th>
+                            <th>Website URL</th>
+                            <th>Created Date</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminToolsTableBody">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 border-top border-dark">
+        <div class="container text-center text-muted small">
+            <p class="mb-1">&copy; 2026 <strong>AI Tools Hub</strong>. Built with Spring Boot, Spring Data JPA, MySQL & Bootstrap.</p>
+            <p class="m-0">Portfolio-ready production web application.</p>
+        </div>
+    </footer>
+
+    <!-- TOOL DETAILS MODAL -->
+    <div class="modal fade" id="toolDetailsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-0">
+                    <div class="d-flex align-items-start gap-4 flex-wrap mb-3">
+                        <img id="detailToolImage" src="" alt="Tool Preview" class="rounded detail-img shadow">
+                        <div class="flex-grow-1">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <span class="badge badge-category" id="detailCategory">Category</span>
+                                <span class="badge badge-pricing" id="detailPricing">Pricing</span>
+                            </div>
+                            <h3 class="fw-bold mb-1" id="detailToolName">Tool Name</h3>
+                            <p class="text-muted small mb-2" id="detailCreatedAt"><i class="fa-regular fa-calendar me-1"></i> Added Date</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-uppercase text-muted small">Description</h6>
+                        <p class="text-light lead-sm" id="detailDescription"></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-uppercase text-muted small mb-2">Key Features & Capabilities</h6>
+                        <div class="d-flex flex-wrap gap-2" id="detailFeaturesList">
+                            <!-- Feature Pills -->
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2 border-top border-secondary pt-3 mt-4">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <a id="detailVisitBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-gradient">
+                            Visit Official Website <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD / EDIT TOOL MODAL -->
+    <div class="modal fade" id="toolFormModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal">
+                <div class="modal-header border-bottom border-secondary">
+                    <h5 class="modal-title fw-bold" id="toolFormModalTitle">
+                        <i class="fa-solid fa-plus-circle me-2 text-accent"></i> Add New AI Tool
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="toolForm" novalidate>
+                    <div class="modal-body p-4">
+                        <input type="hidden" id="formToolId">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="formName" class="form-label fw-semibold">Tool Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="formName" placeholder="e.g. ChatGPT" required>
+                                <div class="invalid-feedback">Please enter a tool name.</div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="formCategory" class="form-label fw-semibold">Category <span class="text-danger">*</span></label>
+                                <select class="form-select" id="formCategory" required>
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="Coding">Coding</option>
+                                    <option value="Research">Research</option>
+                                    <option value="Writing">Writing</option>
+                                    <option value="Design">Design</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Video">Video</option>
+                                    <option value="Image Generation">Image Generation</option>
+                                    <option value="Productivity">Productivity</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Chatbots">Chatbots</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a category.</div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="formPricing" class="form-label fw-semibold">Pricing Tier <span class="text-danger">*</span></label>
+                                <select class="form-select" id="formPricing" required>
+                                    <option value="" disabled selected>Select Pricing</option>
+                                    <option value="Free">Free</option>
+                                    <option value="Freemium">Freemium</option>
+                                    <option value="Paid">Paid</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a pricing tier.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="formUrl" class="form-label fw-semibold">Website URL <span class="text-danger">*</span></label>
+                                <input type="url" class="form-control" id="formUrl" placeholder="https://example.com" required>
+                                <div class="invalid-feedback">Please provide a valid website URL.</div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="formImageUrl" class="form-label fw-semibold">Image Banner URL</label>
+                                <input type="url" class="form-control" id="formImageUrl" placeholder="https://images.unsplash.com/...">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="formDescription" class="form-label fw-semibold">Tool Description <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="formDescription" rows="3" placeholder="Provide a detailed description of what the AI tool does..." required></textarea>
+                                <div class="invalid-feedback">Description is required.</div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="formFeatures" class="form-label fw-semibold">Key Features (comma-separated)</label>
+                                <input type="text" class="form-control" id="formFeatures" placeholder="e.g. Natural Language Processing, Code Generation, Custom GPTs">
+                                <span class="form-text text-muted">Separate multiple features using commas.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-top border-secondary">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-gradient" id="saveToolBtn">
+                            <i class="fa-solid fa-floppy-disk me-1"></i> Save Tool
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- DELETE CONFIRMATION MODAL -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content glass-modal text-center p-3">
+                <div class="modal-body">
+                    <i class="fa-solid fa-triangle-exclamation display-4 text-warning mb-3"></i>
+                    <h5 class="fw-bold mb-2">Delete Tool?</h5>
+                    <p class="text-muted small mb-3">Are you sure you want to delete <strong id="deleteToolNameText">this tool</strong>? This action cannot be undone.</p>
+                    <input type="hidden" id="deleteToolId">
+                    <div class="d-flex justify-content-center gap-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-sm btn-danger" id="confirmDeleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+        <div id="liveToast" class="toast align-items-center text-white bg-dark border-0 glass-card" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body d-flex align-items-center gap-2" id="toastMessage">
+                    <i class="fa-solid fa-circle-check text-success fs-5"></i>
+                    <span>Operation completed successfully.</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- App JS -->
+    <script src="/js/app.js"></script>
+</body>
+</html>
